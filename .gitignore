@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# React Native
+.expo/
+npm-debug.*
