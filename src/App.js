@@ -1,13 +1,14 @@
 import React from 'react'
-import { TabNavigator } from 'react-navigation'
+import { StackNavigator, TabNavigator } from 'react-navigation'
 
 import { FarmScreen } from './screens/FarmScreen'
+import { LoginScreen } from './screens/LoginScreen'
 import { SettingScreen } from './screens/SettingScreen'
 import { WarehouseScreen } from './screens/WarehouseScreen'
 
 export default class App extends React.Component {
   render() {
-    return <MainNavigator/>
+    return <LoginNavigator/>
   }
 }
 
@@ -30,4 +31,9 @@ const MainNavigator = TabNavigator({
       title: 'Setting',
     },
   },
+})
+
+const LoginNavigator = StackNavigator({
+  Login: { screen: props => <LoginScreen {...props} routeTo='Main'/> },
+  Main: { screen: MainNavigator },
 })
