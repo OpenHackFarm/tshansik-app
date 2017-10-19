@@ -1,19 +1,25 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native';
 
+import { FacebookLoginButton } from '../components/FacebookLoginButton'
+
 export class LoginScreen extends React.Component {
   render() {
-    const { navigate } = this.props.navigation
-
     return (
       <View style={styles.container}>
         <Text>Login</Text>
-        <Button
-          onPress={() => navigate(this.props.routeTo)}
+        <FacebookLoginButton
           title='Login with Facebook'
+          loginCallback={this.loginCallback}
         />
       </View>
     )
+  }
+
+  loginCallback = (userInfo) => {
+    console.log(userInfo)
+    const { navigate } = this.props.navigation
+    navigate(this.props.routeTo)
   }
 }
 
