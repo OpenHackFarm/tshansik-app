@@ -4,7 +4,7 @@ import { Button, Text, View } from 'react-native';
 
 const FB_APP_ID = '903848686439681'
 
-export class FacebookLoginButton extends React.Component {
+export default class FacebookLoginButton extends React.Component {
   state = {
     userInfo: null,
   }

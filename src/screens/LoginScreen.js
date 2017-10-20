@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationActions } from 'react-navigation'
 
-import { FacebookLoginButton } from '../components/FacebookLoginButton'
+import FacebookLoginButton from '../components/FacebookLoginButton'
 
-export class LoginScreen extends React.Component {
+export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>

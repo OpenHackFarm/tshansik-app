@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, StyleSheet, View } from 'react-native'
 
-export class WarehouseScreen extends React.Component {
+export default class WarehouseScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, StyleSheet, View } from 'react-native'
 
-export class SettingScreen extends React.Component {
+export default class SettingScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
