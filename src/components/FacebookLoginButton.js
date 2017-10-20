@@ -45,6 +45,6 @@ export class FacebookLoginButton extends React.Component {
     const userInfo = await userInfoResponse.json()
     this.setState({ userInfo })
 
-    this.props.loginCallback(this.state.userInfo)
+    this.props.callback()
   }
 }

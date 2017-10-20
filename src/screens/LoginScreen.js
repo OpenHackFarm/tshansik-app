@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native';
+import { NavigationActions } from 'react-navigation'
 
 import { FacebookLoginButton } from '../components/FacebookLoginButton'
 
@@ -10,16 +11,21 @@ export class LoginScreen extends React.Component {
         <Text>Login</Text>
         <FacebookLoginButton
           title='Login with Facebook'
-          loginCallback={this.loginCallback}
+          callback={this.reset}
         />
       </View>
     )
   }
 
-  loginCallback = (userInfo) => {
-    console.log(userInfo)
-    const { navigate } = this.props.navigation
-    navigate(this.props.routeTo)
+  reset = () => {
+    return this.props
+      .navigation
+      .dispatch(NavigationActions.reset({
+        index: 0,
+        actions: [
+          NavigationActions.navigate({ routeName: this.props.routeTo }),
+        ],
+      }))
   }
 }
 
