@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationActions } from 'react-navigation'
 
 import { FacebookLoginButton } from '../components/FacebookLoginButton'
