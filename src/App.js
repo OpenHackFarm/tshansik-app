@@ -1,14 +1,21 @@
 import React from 'react'
 import { StackNavigator, TabNavigator } from 'react-navigation'
+import { Provider } from 'react-redux'
 
-import { FarmScreen } from './screens/FarmScreen'
-import { LoginScreen } from './screens/LoginScreen'
-import { SettingScreen } from './screens/SettingScreen'
-import { WarehouseScreen } from './screens/WarehouseScreen'
+import FarmScreen from './screens/FarmScreen'
+import LoginScreen from './screens/LoginScreen'
+import SettingScreen from './screens/SettingScreen'
+import WarehouseScreen from './screens/WarehouseScreen'
+
+import {store} from './store'
 
 export default class App extends React.Component {
   render() {
-    return <LoginNavigator/>
+    return (
+      <Provider store={store}>
+        <LoginNavigator/>
+      </Provider>
+    )
   }
 }
 

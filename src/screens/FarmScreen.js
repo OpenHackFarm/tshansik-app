@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export class FarmScreen extends React.Component {
+export default class FarmScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
