@@ -1,13 +1,12 @@
 import React from 'react'
 import { AuthSession } from 'expo'
 import { Button, Text, View } from 'react-native';
-import { connect } from 'react-redux'
-
-import { UPDATE_PROFILE } from '../constants/actionTypes'
+import { inject } from 'mobx-react'
 
 const FB_APP_ID = '903848686439681'
 
-class FacebookLoginButton extends React.Component {
+@inject('profileStore')
+export default class FacebookLoginButton extends React.Component {
   render() {
     return <Button title={this.props.title} onPress={this.login}/>
   }
@@ -42,27 +41,7 @@ class FacebookLoginButton extends React.Component {
       `https://graph.facebook.com/me?access_token=${accessToken}&fields=id,name,picture.type(large)`,
     )
     const userInfo = await userInfoResponse.json()
-    this.props.updateProfile(userInfo)
+    this.props.profileStore.updateProfile(userInfo)
     this.props.callback()
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    profile: state.profile,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    updateProfile: (profile) => dispatch({
-      type: UPDATE_PROFILE,
-      payload: profile,
-    }),
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(FacebookLoginButton)
