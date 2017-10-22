@@ -1,18 +1,22 @@
 import React from 'react'
 import { StackNavigator, TabNavigator } from 'react-navigation'
-import { Provider } from 'react-redux'
+import { Provider } from 'mobx-react'
 
 import FarmScreen from './screens/FarmScreen'
 import LoginScreen from './screens/LoginScreen'
 import SettingScreen from './screens/SettingScreen'
 import WarehouseScreen from './screens/WarehouseScreen'
 
-import {store} from './store'
+import profileStore from './stores/profileStore'
+
+const stores = {
+  profileStore,
+}
 
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider {...stores}>
         <LoginNavigator/>
       </Provider>
     )
