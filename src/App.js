@@ -1,29 +1,24 @@
 import React from 'react'
-import { StackNavigator } from 'react-navigation'
 import { Provider } from 'mobx-react'
-
-import LoginScreen from './screens/LoginScreen'
-import SignedInNavigator from './navigators/SignedInNavigator'
+import { observer } from 'mobx-react'
 
 import authStore from './stores/authStore'
 import profileStore from './stores/profileStore'
+import { createRootNavigator } from './navigator'
 
 const stores = {
   authStore,
   profileStore,
 }
 
+@observer
 export default class App extends React.Component {
   render() {
+    const Layout = createRootNavigator(authStore.signedIn)
     return (
       <Provider {...stores}>
-        <LoginNavigator/>
+        <Layout/>
       </Provider>
     )
   }
 }
-
-const LoginNavigator = StackNavigator({
-  Login: { screen: props => <LoginScreen {...props} routeTo='Main'/> },
-  Main: { screen: SignedInNavigator },
-})
