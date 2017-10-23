@@ -7,9 +7,11 @@ import LoginScreen from './screens/LoginScreen'
 import SettingScreen from './screens/SettingScreen'
 import WarehouseScreen from './screens/WarehouseScreen'
 
+import authStore from './stores/authStore'
 import profileStore from './stores/profileStore'
 
 const stores = {
+  authStore,
   profileStore,
 }
 

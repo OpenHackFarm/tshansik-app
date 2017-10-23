@@ -1,31 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationActions } from 'react-navigation'
+import { Button, StyleSheet, Text, View } from 'react-native'
+import { inject } from 'mobx-react'
 
-import FacebookLoginButton from '../components/FacebookLoginButton'
-
+@inject('authStore')
 export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>Login</Text>
-        <FacebookLoginButton
-          title='Login with Facebook'
-          callback={this.reset}
-        />
+        <Button title='Login with Facebook' onPress={this.props.authStore.login}/>
       </View>
     )
-  }
-
-  reset = () => {
-    return this.props
-      .navigation
-      .dispatch(NavigationActions.reset({
-        index: 0,
-        actions: [
-          NavigationActions.navigate({ routeName: this.props.routeTo }),
-        ],
-      }))
   }
 }
 
