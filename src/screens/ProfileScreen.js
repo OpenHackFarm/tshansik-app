@@ -1,12 +1,13 @@
 import React from 'react'
 import {
+  Button,
   Image,
   Text,
   View,
 } from 'react-native'
 import { inject, observer } from 'mobx-react'
 
-@inject('profileStore')
+@inject('authStore', 'profileStore')
 @observer
 export default class ProfileScreen extends React.Component {
   render() {
@@ -18,6 +19,7 @@ export default class ProfileScreen extends React.Component {
         />
         <Text style={{ fontSize: 20 }}>{this.props.profileStore.profile.name}</Text>
         <Text>ID: {this.props.profileStore.profile.id}</Text>
+        <Button title='Logout' onPress={this.props.authStore.logout}/>
       </View>
     )
   }
